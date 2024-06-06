@@ -1,22 +1,29 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RandomNumberGenerator;
 
 namespace RandomNumberGenerator
 {
-    internal static class Program
+    public partial class RandomNumberGenerator : Form
     {
-        /// <summary>
-        /// Hlavní vstupní bod aplikace.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        public RandomNumberGenerator()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RandomNumberGenerator());
+            InitializeComponent();
+        }
+
+        Random r = new Random();
+
+        private void numberGenerator_Click(object sender, EventArgs e)
+        {
+            int numberGenerator = r.Next(100);
+            numberLabel.Text = numberGenerator.ToString();
         }
     }
 }
